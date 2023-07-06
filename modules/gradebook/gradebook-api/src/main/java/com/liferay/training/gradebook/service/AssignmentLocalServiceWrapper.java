@@ -53,6 +53,16 @@ public class AssignmentLocalServiceWrapper
 		return _assignmentLocalService.addAssignment(assignment);
 	}
 
+	@Override
+	public com.liferay.training.gradebook.model.Assignment addAssignment(
+			long groupId, String title, String description, java.util.Date date,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentLocalService.addAssignment(
+			groupId, title, description, date, serviceContext);
+	}
+
 	/**
 	 * Creates a new assignment with the primary key. Does not add the assignment to the database.
 	 *
@@ -305,6 +315,33 @@ public class AssignmentLocalServiceWrapper
 		return _assignmentLocalService.getAssignments(start, end);
 	}
 
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByGroupId(long groupId) {
+
+		return _assignmentLocalService.getAssignmentsByGroupId(groupId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByGroupId(long groupId, int start, int end) {
+
+		return _assignmentLocalService.getAssignmentsByGroupId(
+			groupId, start, end);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByGroupId(
+			long groupId, String keywords, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.training.gradebook.model.Assignment>
+					orderByComparator) {
+
+		return _assignmentLocalService.getAssignmentsByGroupId(
+			groupId, keywords, start, end, orderByComparator);
+	}
+
 	/**
 	 * Returns all the assignments matching the UUID and company.
 	 *
@@ -405,6 +442,17 @@ public class AssignmentLocalServiceWrapper
 		com.liferay.training.gradebook.model.Assignment assignment) {
 
 		return _assignmentLocalService.updateAssignment(assignment);
+	}
+
+	@Override
+	public com.liferay.training.gradebook.model.Assignment updateAssignment(
+			long assignmentId, String title, String description,
+			java.util.Date dueDate,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentLocalService.updateAssignment(
+			assignmentId, title, description, dueDate, serviceContext);
 	}
 
 	@Override
