@@ -298,6 +298,14 @@ public class AssignmentLocalServiceUtil {
 			groupId, keywords, start, end, orderByComparator);
 	}
 
+	public static List<Assignment> getAssignmentsByKeywords(
+		long groupId, String keywords, int start, int end,
+		OrderByComparator orderByComparator) {
+
+		return getService().getAssignmentsByKeywords(
+			groupId, keywords, start, end, orderByComparator);
+	}
+
 	/**
 	 * Returns all the assignments matching the UUID and company.
 	 *
@@ -336,6 +344,12 @@ public class AssignmentLocalServiceUtil {
 	 */
 	public static int getAssignmentsCount() {
 		return getService().getAssignmentsCount();
+	}
+
+	public static long getAssignmentsCountByKeywords(
+		long groupId, String keywords) {
+
+		return getService().getAssignmentsCountByKeywords(groupId, keywords);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery

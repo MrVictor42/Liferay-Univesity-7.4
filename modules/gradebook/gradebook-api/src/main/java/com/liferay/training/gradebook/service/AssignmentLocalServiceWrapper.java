@@ -342,6 +342,17 @@ public class AssignmentLocalServiceWrapper
 			groupId, keywords, start, end, orderByComparator);
 	}
 
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByKeywords(
+			long groupId, String keywords, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				orderByComparator) {
+
+		return _assignmentLocalService.getAssignmentsByKeywords(
+			groupId, keywords, start, end, orderByComparator);
+	}
+
 	/**
 	 * Returns all the assignments matching the UUID and company.
 	 *
@@ -387,6 +398,12 @@ public class AssignmentLocalServiceWrapper
 	@Override
 	public int getAssignmentsCount() {
 		return _assignmentLocalService.getAssignmentsCount();
+	}
+
+	@Override
+	public long getAssignmentsCountByKeywords(long groupId, String keywords) {
+		return _assignmentLocalService.getAssignmentsCountByKeywords(
+			groupId, keywords);
 	}
 
 	@Override

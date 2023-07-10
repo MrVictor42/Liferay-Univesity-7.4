@@ -86,6 +86,14 @@ public class AssignmentLocalServiceImpl extends AssignmentLocalServiceBaseImpl {
 		return assignmentLocalService.dynamicQuery(getKeywordSearchDynamicQuery(groupId, keywords), start, end, orderByComparator);
 	}
 
+	public List<Assignment> getAssignmentsByKeywords(long groupId, String keywords, int start, int end, OrderByComparator orderByComparator) {
+		return assignmentLocalService.dynamicQuery(getKeywordSearchDynamicQuery(groupId, keywords), start, end, orderByComparator);
+	}
+
+	public long getAssignmentsCountByKeywords(long groupId, String keywords) {
+		return assignmentLocalService.dynamicQueryCount(getKeywordSearchDynamicQuery(groupId, keywords));
+	}
+
 	private DynamicQuery getKeywordSearchDynamicQuery(long groupId, String keywords) {
 		DynamicQuery dynamicQuery = dynamicQuery().add(RestrictionsFactoryUtil.eq("groupId", groupId));
 

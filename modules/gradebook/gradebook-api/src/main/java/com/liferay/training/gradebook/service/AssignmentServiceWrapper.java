@@ -34,6 +34,60 @@ public class AssignmentServiceWrapper
 		_assignmentService = assignmentService;
 	}
 
+	@Override
+	public com.liferay.training.gradebook.model.Assignment addAssignment(
+			long groupId, String title, String description,
+			java.util.Date dueDate,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentService.addAssignment(
+			groupId, title, description, dueDate, serviceContext);
+	}
+
+	@Override
+	public com.liferay.training.gradebook.model.Assignment deleteAssignment(
+			long assignmentId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentService.deleteAssignment(assignmentId);
+	}
+
+	@Override
+	public com.liferay.training.gradebook.model.Assignment getAssignment(
+			long assignmentId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentService.getAssignment(assignmentId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByGroupId(long groupId) {
+
+		return _assignmentService.getAssignmentsByGroupId(groupId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.gradebook.model.Assignment>
+		getAssignmentsByKeywords(
+			long groupId, String keywords, int start, int end,
+			com.liferay.portal.kernel.util.OrderByComparator
+				<com.liferay.training.gradebook.model.Assignment>
+					orderByComparator) {
+
+		return _assignmentService.getAssignmentsByKeywords(
+			groupId, keywords, start, end, orderByComparator);
+	}
+
+	@Override
+	public long getAssignmentsByKeywordsCountByKeywords(
+		long groupId, String keywords) {
+
+		return _assignmentService.getAssignmentsByKeywordsCountByKeywords(
+			groupId, keywords);
+	}
+
 	/**
 	 * Returns the OSGi service identifier.
 	 *
@@ -42,6 +96,17 @@ public class AssignmentServiceWrapper
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _assignmentService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.liferay.training.gradebook.model.Assignment updateAssignment(
+			long assignmentId, String title, String description,
+			java.util.Date dueDate,
+			com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+
+		return _assignmentService.updateAssignment(
+			assignmentId, title, description, dueDate, serviceContext);
 	}
 
 	@Override
